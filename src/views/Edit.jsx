@@ -10,7 +10,7 @@ function Edit() {
     })
     const{id}=useParams();
      async function loadstudent(){
-        const response=await axios.get(`http://localhost:5002/students/${id}`);
+        const response=await axios.get(`${import.meta.env.VITE_API_URL}/students/${id}`);
         setStudent(response.data.data)
     }
     useEffect(()=>{
@@ -20,7 +20,7 @@ function Edit() {
     },[id])
     async function updatestudent(e){
           e.preventDefault();
-        const response=await axios.put(`http://localhost:5002/students/${id}`,{
+        const response=await axios.put(`${import.meta.env.VITE_API_URL}/students/${id}`,{
             name:student.name,
             city:student.city
         });

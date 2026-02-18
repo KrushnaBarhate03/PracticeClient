@@ -13,7 +13,7 @@ function App() {
   }])
 
  const loadstudent=async()=>{
-    const response=await axios.get("http://localhost:5002/students");
+    const response=await axios.get(`${import.meta.env.VITE_API_URL}/students`);
      setStudent(response.data.data)
  }
  useEffect(()=>{
@@ -24,7 +24,7 @@ function App() {
  
  
    async function DeleteStudent(id){
-    const response=await axios.delete(`http://localhost:5002/students/${id}`)
+    const response=await axios.delete(`${import.meta.env.VITE_API_URL}/students/${id}`)
   }
 
 

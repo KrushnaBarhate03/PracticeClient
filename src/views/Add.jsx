@@ -10,7 +10,7 @@ function Add() {
     })
     async function submitstudent(e){
           e.preventDefault();
-        const response=await axios.post("http://localhost:5002/students",student);
+        const response=await axios.post(`${import.meta.env.VITE_API_URL}/students`,student);
         if(response.data.success){
             toast.success("Student added successfully");
             setStudent({
